@@ -154,12 +154,20 @@ TOPICS -
                   - target (to where put the compiled code)
                
        - Jar plugin
+           -The jar plugin creates a JAR file from your Maven project. The jar goal of the jar plugin is bound to the package phase of the Maven default lifecycle. When you type mvn clean install, Maven will execute all the phases in the default lifecycle up to and including the install phase, which also includes the package phase.
            - Package
            - Package phase
            - Configurations 
                 -includes/excludes
                 - Manifests
-       - Sources plugin
+       - Sources plugin 
+           - The source plugin creates a JAR file with the project source code. It defines five goals: aggregate, jar, test-jar, jar-no-fork, and test-jar-no-fork. All these five goals of the source plugin will run under the package phase of the default lifecycle.
+
+           Unlike any of the plugins we discussed before, if you want to execute the source plugin with the Maven default lifecycle, it has to be defined in the project POM file, shown as follows. The super POM file does not define the source plugin; it has to be within your Maven project itself
+      
+       Difference between Source plugin and Jar plugin- 
+          Both create JAR files; however, the jar plugin creates a JAR file from the binary artifact, while the source plugin creates a JAR file from the source code. Small-scale open source projects use this approach to distribute the corresponding source code along with the binary artifacts
+
        - Javadoc plugin
 
  6. IDE integration
