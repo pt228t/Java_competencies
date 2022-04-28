@@ -26,7 +26,54 @@
 				3.8.1
 			</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>    <!-- This dependency is example of having transitive dependencies as well-->
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.0.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>   <!-- This is just a reference to industry standard version format(some uses Final or MC1 or RC1 etc)-->
+			<artifactId>hibernate-core</artifactId>
+			<version>6.0.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.2.0.BUILD-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
+
+	<repositories>
+	   <repository>
+	      <id>spring-snapshot</id>
+		  <url>https://repo.spring.io//libs-snapshot</url>
+		  <snapshots>
+		     <enabled>true</enabled>
+		  </snapshots>
+		  <releases>
+		     <enabled>false</enabled>
+		  </releases>
+	   </repository>
+	</repositories>
+
+	<pluginRepositories>    <!--This is just a fake example of getting the plugins from some dedicated repository to mention the example for plugin repository-->
+	   <pluginRepository>
+	      <id>fake_name</id>
+		  <url>http://acme.corp.com/plugins</url>
+		  <snapshots>
+		     <enabled>true</enabled>
+		  </snapshots>
+		  <releases>
+		     <enabled>true</enabled>
+		  </releases>
+	   </pluginRepository>
+	</pluginRepositories>
+
 	<build>
         <finalName>foo</finalName>  <!-- Example of overriding the default package name to foo in build element-->
 		<plugins>
@@ -44,6 +91,17 @@
 					<release>
 						11
 					</release>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+				   <includes>
+				      <include>**/*.xml</include>   <!--This will make sure that during package phase it will check all directories and sub-directories and include all the files with xml extension in packaging-->
+				   </includes>
 				</configuration>
 			</plugin>
 		</plugins>
