@@ -155,7 +155,7 @@ TOPICS -
                
        - Jar plugin
            -The jar plugin creates a JAR file from your Maven project. The jar goal of the jar plugin is bound to the package phase of the Maven default lifecycle. When you type mvn clean install, Maven will execute all the phases in the default lifecycle up to and including the install phase, which also includes the package phase.
-           - Package
+           - Package class files only but with help of jar plugin, we can inculde other files too.
            - Package phase
            - Configurations 
                 -includes/excludes
@@ -169,8 +169,17 @@ TOPICS -
           Both create JAR files; however, the jar plugin creates a JAR file from the binary artifact, while the source plugin creates a JAR file from the source code. Small-scale open source projects use this approach to distribute the corresponding source code along with the binary artifacts
 
        - Javadoc plugin
+           -Almost identical to Source plugin
+           -Package javadoc files 
+           -Package phase 
+               - but we can override it to later phase
+           -Defaults
+              - Many customization options
+           -It's default phase is site
 
  6. IDE integration
+          - Effective POM - 
+               It is a complete POM, including inherited settings
 
 
 
