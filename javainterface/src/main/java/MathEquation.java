@@ -3,6 +3,8 @@ public class MathEquation {
     double rightVal;
     char opcode;
     double results;
+    private static int numberofCalculations;
+    private static int sumofResults;
 
    public MathEquation(){
 
@@ -35,5 +37,24 @@ public class MathEquation {
              System.out.println("Invalid Opcode");
              results = 0.0d;
        }
+       numberofCalculations+=1;
+       sumofResults+=results;
+   }
+
+   void execute(double leftVal, double rightVal) {
+      this.leftVal = leftVal;
+      this.rightVal = rightVal;
+      execute();
+   }
+
+   void execute(int leftVal, int rightVal) {
+    this.leftVal = leftVal;
+    this.rightVal = rightVal;
+    execute();
+    results = (int)results;
+   }
+
+   public static int getAverageresultofCalculations() {
+     return sumofResults / numberofCalculations;
    }
 }
