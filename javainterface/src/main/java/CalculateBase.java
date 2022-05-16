@@ -3,7 +3,7 @@ public class CalculateBase {
     private double leftVal;
     private double rightVal;
     private double results;
-
+    
     public double getleftVal() {
         return leftVal;
     }
@@ -27,8 +27,6 @@ public class CalculateBase {
     public void setResult(double results){
         this.results = results;
     }
-    public void calculations(){
-
-    }
+    public void calculations(){}
 
 }
